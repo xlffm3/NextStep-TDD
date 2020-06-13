@@ -1,7 +1,7 @@
 package calculator;
 
-import calculator.model.CalculationExpression;
-import calculator.model.CalculatorBuildingException;
+import calculator.domain.CalculationExpression;
+import calculator.domain.CalculatorBuildingException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

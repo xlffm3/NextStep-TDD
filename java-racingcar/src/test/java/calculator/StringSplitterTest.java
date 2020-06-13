@@ -1,7 +1,7 @@
 package calculator;
 
-import calculator.model.CalculatorBuildingException;
-import calculator.model.StringSplitter;
+import calculator.domain.CalculatorBuildingException;
+import calculator.domain.StringSplitter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

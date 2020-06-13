@@ -1,4 +1,4 @@
-package calculator.model;
+package calculator.domain;
 
 public class CalculatorBuildingException extends RuntimeException {
     public static final String NULL_OR_EMPTY_EXPRESSION = "계산식 문자열이 null이거나 비어있습니다.";

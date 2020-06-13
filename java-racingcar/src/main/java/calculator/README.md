@@ -31,7 +31,15 @@
 * StringSplitter
     * 입력받은 문자열을 지정 구분자로 Split한다.       
     * 문자열이 null이거나 빈 공백일 경우 예외를 발생시킨다.
+    
+* StringCalculator
+    * CalculationExpression을 받으면 계산을 진행한다.
 
+* Operator
+    * 사칙연산자를 정의한 Enum이며, 각 상수별로 계산에 필요한 인터페이스를 정의하고 있다.
+    * String을 파라미터로 받으면 해당 연산자의 시그니처와 동일한 연산자를 리턴한다.
+    * 없을 경우 예외를 발생한다.
+    
 * LadderBuildingException
     * 런타임 예외를 상속받는 커스텀 예외 클래스이다.
 

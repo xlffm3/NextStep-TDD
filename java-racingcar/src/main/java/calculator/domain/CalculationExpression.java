@@ -1,11 +1,13 @@
-package calculator.model;
+package calculator.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CalculationExpression {
-    private static final int MINIMUM_TOKEN_COUNTS = 2;
+    private static final int MINIMUM_TOKEN_COUNTS = 3;
+    private static final int TWO = 2;
     private static final int ZERO = 0;
 
     private final List<String> calculationExpressionTokens;
@@ -23,18 +25,18 @@ public class CalculationExpression {
 
     private static void validateCalculationExpressionTokens(String[] calculationExpressionTokens) {
         int tokenCounts = calculationExpressionTokens.length;
-        if (tokenCounts < MINIMUM_TOKEN_COUNTS || isEvenTokenCounts(tokenCounts)) {
+        if (tokenCounts < MINIMUM_TOKEN_COUNTS || tokenCounts % TWO == ZERO) {
             throw new CalculatorBuildingException(CalculatorBuildingException.INVALID_EXPRESSION_TOKEN_COUNTS);
         }
-    }
-
-    private static boolean isEvenTokenCounts(int tokenCounts) {
-        return tokenCounts % MINIMUM_TOKEN_COUNTS == ZERO;
     }
 
     private static List<String> trimCalculationExpressionTokens(String[] calculationExpressionTokens) {
         return Arrays.stream(calculationExpressionTokens)
                 .map(String::trim)
                 .collect(Collectors.toList());
+    }
+
+    public List<String> getTokens() {
+        return Collections.unmodifiableList(calculationExpressionTokens);
     }
 }
