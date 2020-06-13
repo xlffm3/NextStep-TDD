@@ -8,7 +8,7 @@ public class StringSplitter {
 
     public static String[] split(String expression) {
         if (isNullOrEmpty(expression)) {
-            throw new CalculationBuildingException(CalculationBuildingException.NULL_OR_EMPTY_EXPRESSION);
+            throw new CalculatorBuildingException(CalculatorBuildingException.NULL_OR_EMPTY_EXPRESSION);
         }
         return expression.split(BLANK_DELIMITER);
     }

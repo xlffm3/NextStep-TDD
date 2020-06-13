@@ -1,6 +1,6 @@
 package calculator;
 
-import calculator.model.CalculationBuildingException;
+import calculator.model.CalculatorBuildingException;
 import calculator.model.StringSplitter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.NullAndEmptySource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class StringSplitterTest {
+public class StringSplitterTest {
 
     @DisplayName("입력받은 문자를 공백을 기준으로 Split함")
     @Test
@@ -26,7 +26,7 @@ class StringSplitterTest {
     public void throwExceptionWhenSplit(String expression) {
         assertThatThrownBy(() -> {
             StringSplitter.split(expression);
-        }).isInstanceOf(CalculationBuildingException.class)
-                .hasMessageContaining(CalculationBuildingException.NULL_OR_EMPTY_EXPRESSION);
+        }).isInstanceOf(CalculatorBuildingException.class)
+                .hasMessageContaining(CalculatorBuildingException.NULL_OR_EMPTY_EXPRESSION);
     }
 }
