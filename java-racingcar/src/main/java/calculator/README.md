@@ -23,7 +23,17 @@
 ## 기능 구현 목록
 
 ### Model
+* CalculationExpression
+    * 사용자의 계산식 문자열(List<String>)을 감싼 일급 컬렉션이다.
+    * 기본 생성자 이외에 String을 받아 Parsing해 객체를 생성한다.
+    * Split된 문자열의 개수가 1이거나 짝수일 경우 예외를 발생시킨다.
 
+* StringSplitter
+    * 입력받은 문자열을 지정 구분자로 Split한다.       
+    * 문자열이 null이거나 빈 공백일 경우 예외를 발생시킨다.
+
+* LadderBuildingException
+    * 런타임 예외를 상속받는 커스텀 예외 클래스이다.
 
 ### View
 * InputView
