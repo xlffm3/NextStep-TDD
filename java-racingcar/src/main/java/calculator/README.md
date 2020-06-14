@@ -22,7 +22,7 @@
 
 ## 기능 구현 목록
 
-### Model
+### Domain
 * CalculationExpression
     * 사용자의 계산식 문자열(List<String>)을 감싼 일급 컬렉션이다.
     * 기본 생성자 이외에 String을 받아 Parsing해 객체를 생성한다.
