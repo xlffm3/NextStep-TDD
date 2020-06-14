@@ -28,7 +28,8 @@
     * 기본 생성자 이외에 String을 받아 Parsing해 객체를 생성한다.
     * Split된 문자열의 개수가 1이거나 짝수일 경우 예외를 발생시킨다.
     * Index 번호를 받았을 때, String이 연산자이면 적합한 연산자를, Number라면 Integer로 변환해서 리턴한다.
-
+        * 해당 반환 작업 수행이 불가능할 때 예외를 발생시킨다.
+        
 * StringSplitter
     * 입력받은 문자열을 지정 구분자로 Split한다.       
     * 문자열이 null이거나 빈 공백일 경우 예외를 발생시킨다.
@@ -52,6 +53,7 @@
     * 사용자의 계산식 문자열을 입력 받는다.
     
 * OutputView
+    * 계산 결과를 출력한다.
 
 ### Controller
 * Application

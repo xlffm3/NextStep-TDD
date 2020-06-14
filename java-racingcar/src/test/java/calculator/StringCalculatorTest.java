@@ -20,7 +20,11 @@ class StringCalculatorTest {
     private static Stream<Arguments> mockExpressionBuilder() {
         return Stream.of(
                 Arguments.of("1 + 10 + 9 / 2 * 8 - 5", 75),
-                Arguments.of("1 + 9 * 9 / 10 - 10", -1)
+                Arguments.of("1 + 9 * 9 / 10 - 10", -1),
+                Arguments.of("1 * 2 * 3 + 4 / 5 - 6", -4),
+                Arguments.of("1 * 3 * 10 / 5 - 1 + 10", 15),
+                Arguments.of("9 + 9 / 9 * 9 - 9", 9),
+                Arguments.of("3 * 2 * 2 / 2 - 1 + 3", 8)
         );
     }
 
