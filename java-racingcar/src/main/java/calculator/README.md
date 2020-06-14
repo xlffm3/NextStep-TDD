@@ -27,6 +27,7 @@
     * 사용자의 계산식 문자열(List<String>)을 감싼 일급 컬렉션이다.
     * 기본 생성자 이외에 String을 받아 Parsing해 객체를 생성한다.
     * Split된 문자열의 개수가 1이거나 짝수일 경우 예외를 발생시킨다.
+    * Index 번호를 받았을 때, String이 연산자이면 적합한 연산자를, Number라면 Integer로 변환해서 리턴한다.
 
 * StringSplitter
     * 입력받은 문자열을 지정 구분자로 Split한다.       
@@ -40,12 +41,16 @@
     * String을 파라미터로 받으면 해당 연산자의 시그니처와 동일한 연산자를 리턴한다.
     * 없을 경우 예외를 발생한다.
     
+* CalculationResult
+    * 계산 결과 값을 감싼 객체이다.
+    
 * LadderBuildingException
     * 런타임 예외를 상속받는 커스텀 예외 클래스이다.
 
 ### View
 * InputView
     * 사용자의 계산식 문자열을 입력 받는다.
+    
 * OutputView
 
 ### Controller

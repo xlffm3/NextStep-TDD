@@ -1,9 +1,7 @@
 package calculator.domain;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CalculationExpression {
     private static final int MINIMUM_TOKEN_COUNTS = 3;
@@ -19,8 +17,7 @@ public class CalculationExpression {
     public static CalculationExpression of(String inputCalculationExpression) {
         String[] calculationExpressionTokens = StringSplitter.split(inputCalculationExpression);
         validateCalculationExpressionTokens(calculationExpressionTokens);
-        List<String> trimCalculationExpressionTokens = trimCalculationExpressionTokens(calculationExpressionTokens);
-        return new CalculationExpression(trimCalculationExpressionTokens);
+        return new CalculationExpression(Arrays.asList(calculationExpressionTokens));
     }
 
     private static void validateCalculationExpressionTokens(String[] calculationExpressionTokens) {
@@ -30,13 +27,19 @@ public class CalculationExpression {
         }
     }
 
-    private static List<String> trimCalculationExpressionTokens(String[] calculationExpressionTokens) {
-        return Arrays.stream(calculationExpressionTokens)
-                .map(String::trim)
-                .collect(Collectors.toList());
+    public Operator getMatchOperatorByIndex(int index) {
+        return Operator.findOperator(calculationExpressionTokens.get(index));
     }
 
-    public List<String> getTokens() {
-        return Collections.unmodifiableList(calculationExpressionTokens);
+    public int getNumberByIndex(int index) {
+        try {
+            return Integer.parseInt(calculationExpressionTokens.get(index));
+        } catch (NumberFormatException e) {
+            throw new CalculatorBuildingException(CalculatorBuildingException.INVALID_NUMBER_FORMAT);
+        }
+    }
+
+    public int getLength() {
+        return calculationExpressionTokens.size();
     }
 }

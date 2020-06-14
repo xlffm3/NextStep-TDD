@@ -1,7 +1,7 @@
 package calculator.domain;
 
 public class StringSplitter {
-    private static final String BLANK_DELIMITER = " ";
+    private static final String DELIMITER = " ";
 
     private StringSplitter() {
     }
@@ -10,7 +10,7 @@ public class StringSplitter {
         if (isNullOrEmpty(expression)) {
             throw new CalculatorBuildingException(CalculatorBuildingException.NULL_OR_EMPTY_EXPRESSION);
         }
-        return expression.split(BLANK_DELIMITER);
+        return expression.split(DELIMITER);
     }
 
     private static boolean isNullOrEmpty(String expression) {

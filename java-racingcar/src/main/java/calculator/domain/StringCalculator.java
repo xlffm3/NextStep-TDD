@@ -1,26 +1,21 @@
 package calculator.domain;
 
-import java.util.List;
-
 public class StringCalculator {
-    private static final int INDEX_FIRST = 1;
+    private static final int INDEX_ZERO = 0;
+    private static final int INDEX_ONE = 1;
+    private static final int TWO = 2;
 
     private StringCalculator() {
     }
 
-    public static int calculate(CalculationExpression calculationExpression) {
-        List<String> calculationExpressionTokens = calculationExpression.getTokens();
-        int tokenCounts = calculationExpressionTokens.size();
-        int result = 0;
-        int firstNumber = Integer.parseInt(calculationExpressionTokens.get(0));
-        for (int i = INDEX_FIRST; i < tokenCounts; i += 2) {
-            Operator operator = Operator.findOperator(calculationExpressionTokens.get(i));
-            int secondNumber = Integer.parseInt(calculationExpressionTokens.get(i + 1));
-            result = operator.calculate(firstNumber, secondNumber);
-            firstNumber = result;
+    public static CalculationResult calculate(CalculationExpression calculationExpression) {
+        int calculationExpressionLength = calculationExpression.getLength();
+        int firstNumber = calculationExpression.getNumberByIndex(INDEX_ZERO);
+        for (int i = INDEX_ONE; i < calculationExpressionLength; i += TWO) {
+            Operator operator = calculationExpression.getMatchOperatorByIndex(i);
+            int secondNumber = calculationExpression.getNumberByIndex(i + INDEX_ONE);
+            firstNumber = operator.calculate(firstNumber, secondNumber);
         }
-        return result;
-
-        // 1 + 2 + 3 + 4
+        return new CalculationResult(firstNumber);
     }
 }

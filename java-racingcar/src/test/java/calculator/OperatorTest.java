@@ -1,5 +1,6 @@
 package calculator;
 
+import calculator.domain.CalculatorBuildingException;
 import calculator.domain.Operator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class OperatorTest {
 
@@ -29,6 +31,24 @@ public class OperatorTest {
         assertThat(Operator.PLUS.calculate(first, second)).isEqualTo(35);
     }
 
+    @DisplayName("10 - 25 연산자 값 테스트")
+    @Test
+    public void calculateMinus() {
+        int first = 10;
+        int second = 25;
+
+        assertThat(Operator.MINUS.calculate(first, second)).isEqualTo(-15);
+    }
+
+    @DisplayName("10 * 25 연산자 값 테스트")
+    @Test
+    public void calculateMultiple() {
+        int first = 10;
+        int second = 25;
+
+        assertThat(Operator.MULTIPLE.calculate(first, second)).isEqualTo(250);
+    }
+
     @DisplayName("33 / 10 연산자 값 테스트")
     @Test
     public void calculateDivide() {
@@ -43,5 +63,14 @@ public class OperatorTest {
     @MethodSource("mockOperatorBuilder")
     public void valueOfTest(String operatorSign, Operator operator) {
         assertThat(Operator.findOperator(operatorSign)).isEqualTo(operator);
+    }
+
+    @DisplayName("적합하지 않은 연산자 기호는 에러 발생")
+    @Test
+    public void throwExceptionWhenInvalidOperatorSign() {
+        assertThatThrownBy(() -> {
+            Operator.findOperator("!");
+        }).isInstanceOf(CalculatorBuildingException.class)
+                .hasMessageContaining(CalculatorBuildingException.INVALID_OPERATOR);
     }
 }
