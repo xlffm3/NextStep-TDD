@@ -17,8 +17,7 @@ public class LotteryGameResult {
     }
 
     public int findWinnerTicketCountsByRank(LotteryRank lotteryRank) {
-        Integer winnerTicketCounts = winnerTicketCountsByRank.get(lotteryRank);
-        return (winnerTicketCounts == null) ? ZERO : winnerTicketCounts;
+        return winnerTicketCountsByRank.getOrDefault(lotteryRank, ZERO);
     }
 
     public RateOfReturn calculateRateOfReturn(PurchasePrice purchasePrice) {

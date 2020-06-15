@@ -7,7 +7,6 @@ import java.util.Optional;
 public class LotteryNumber {
     public static final int MINIMUM_NUMBER = 1;
     public static final int MAXIMUM_NUMBER = 45;
-
     private static final Map<Integer, LotteryNumber> lotteryNumberCache = new HashMap<>();
 
     static {

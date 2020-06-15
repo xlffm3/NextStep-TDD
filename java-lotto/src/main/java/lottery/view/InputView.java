@@ -36,8 +36,7 @@ public class InputView {
 
     public static String[] getInputLastWinnerTicketNumbers() {
         System.out.println(ViewMessages.INSTRUCTION_LOTTERY_WINNER_NUMBERS);
-        return SCANNER.nextLine()
-                .split(ViewMessages.COMMA);
+        return SCANNER.nextLine().split(ViewMessages.COMMA);
     }
 
     public static int getInputBonusBallNumber() {

@@ -1,6 +1,6 @@
 package lottery.domain;
 
-import java.util.List;
+import java.util.stream.Stream;
 
 public class WinningLottery {
 
@@ -25,11 +25,11 @@ public class WinningLottery {
         }
     }
 
-    public List<Integer> getLastWinningTicketNumbers() {
-        return lastWinningTicket.getLotteryNumbers();
-    }
-
     public int getBonusBallNumber() {
         return bonusBall.getLotteryNumber();
+    }
+
+    public Stream<Integer> getLastWinningTicketNumbersStream() {
+        return lastWinningTicket.getLotteryNumbers().stream();
     }
 }

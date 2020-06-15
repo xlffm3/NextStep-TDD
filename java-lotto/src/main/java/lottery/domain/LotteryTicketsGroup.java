@@ -48,18 +48,18 @@ public class LotteryTicketsGroup {
                 .map(LotteryTicket::getLotteryNumbers)
                 .collect(Collectors.toList());
     }
-
-    private void updateGameResultBoard(LotteryRank lotteryRank, Map<LotteryRank, Integer> gameResultBoard) {
-        int winnerTicketCounts = gameResultBoard.getOrDefault(lotteryRank, DEFAULT_WINNER_TICKET_COUNTS)
-                + COUNT_ONE;
-        gameResultBoard.put(lotteryRank, winnerTicketCounts);
-    }
-
+    
     public Map<LotteryRank, Integer> findWinnerTicketCountsByRank(WinningLottery winningLottery) {
         Map<LotteryRank, Integer> gameResultBoard = new HashMap<>();
         lotteryTickets.stream()
                 .map(targetLotteryTicket -> targetLotteryTicket.getMatchLotteryRank(winningLottery))
                 .forEach(targetLotteryRank -> updateGameResultBoard(targetLotteryRank, gameResultBoard));
         return gameResultBoard;
+    }
+
+    private void updateGameResultBoard(LotteryRank lotteryRank, Map<LotteryRank, Integer> gameResultBoard) {
+        int winnerTicketCounts = gameResultBoard.getOrDefault(lotteryRank, DEFAULT_WINNER_TICKET_COUNTS)
+                + COUNT_ONE;
+        gameResultBoard.put(lotteryRank, winnerTicketCounts);
     }
 }

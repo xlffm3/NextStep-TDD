@@ -22,6 +22,7 @@ public class LotteryTicket {
 
     public static LotteryTicket publishManualLotteryTicket(String[] lotteryNumbers) {
         List<LotteryNumber> parsedLotteryNumbers = Arrays.stream(lotteryNumbers)
+                .map(String::trim)
                 .map(Integer::parseInt)
                 .map(LotteryNumber::from)
                 .collect(Collectors.toList());
@@ -39,7 +40,7 @@ public class LotteryTicket {
     }
 
     public boolean isContainingLotteryNumber(int lotteryNumber) {
-        return this.getLotteryNumbers().contains(lotteryNumber);
+        return getLotteryNumbers().contains(lotteryNumber);
     }
 
     private void validateLotteryNumberCounts(List<LotteryNumber> lotteryNumbers) {
@@ -59,9 +60,9 @@ public class LotteryTicket {
     }
 
     public LotteryRank getMatchLotteryRank(WinningLottery winningLottery) {
-        long matchNumberCounts = this.getLotteryNumbers().stream()
+        long matchNumberCounts = getLotteryNumbers().stream()
                 .filter(targetNumber ->
-                        winningLottery.getLastWinningTicketNumbers().stream().anyMatch(Predicate.isEqual(targetNumber)))
+                        winningLottery.getLastWinningTicketNumbersStream().anyMatch(Predicate.isEqual(targetNumber)))
                 .count();
         int bonusBallCount = getContainingBonusBallCount(winningLottery);
         return LotteryRank.valueOf((int) matchNumberCounts, bonusBallCount);
@@ -69,7 +70,7 @@ public class LotteryTicket {
 
     private int getContainingBonusBallCount(WinningLottery winningLottery) {
         int bonusBallNumber = winningLottery.getBonusBallNumber();
-        return (int) this.getLotteryNumbers().stream()
+        return (int) getLotteryNumbers().stream()
                 .filter(targetNumber -> targetNumber == bonusBallNumber)
                 .count();
     }
