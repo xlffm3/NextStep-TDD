@@ -21,7 +21,7 @@ public class WinningLottery {
 
     private void validateLastWinningLottery(LotteryTicket lastWinningTicket, LotteryNumber bonusBallNumber) {
         if (lastWinningTicket.isContainingLotteryNumber(bonusBallNumber.getLotteryNumber())) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_BONUS_BALL_NUMBER);
+            throw new LotteryBuildingException(LotteryBuildingException.INVALID_BONUS_BALL_NUMBER);
         }
     }
 

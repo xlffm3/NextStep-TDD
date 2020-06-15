@@ -1,5 +1,6 @@
 package lottery;
 
+import lottery.domain.LotteryBuildingException;
 import lottery.domain.PurchasePrice;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -45,7 +46,7 @@ public class PurchasePriceTest {
     @ParameterizedTest
     @CsvSource({"1000, 2", "1000, -1", "999, 0", "-300, 0", "4444, 5"})
     public void throwExceptionOnMakingPurchasePriceObject(long priceInput, int manualTicketCounts) {
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(LotteryBuildingException.class)
                 .isThrownBy(() -> {
                     PurchasePrice.of(priceInput, manualTicketCounts);
                 });

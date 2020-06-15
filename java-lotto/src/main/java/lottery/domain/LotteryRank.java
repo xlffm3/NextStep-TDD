@@ -31,13 +31,13 @@ public enum LotteryRank {
 
     private static void validateMatchNumberCounts(int matchNumberCounts) {
         if (matchNumberCounts < MISS.matchNumberCounts || matchNumberCounts > FIRST_PRIZE.matchNumberCounts) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_MATCH_NUMBER_COUNTS);
+            throw new LotteryBuildingException(LotteryBuildingException.INVALID_MATCH_NUMBER_COUNTS);
         }
     }
 
     private static void validateBonusBallCount(int bonusBallCount) {
         if (bonusBallCount < MISS.bonusBallCount || bonusBallCount > SECOND_PRIZE.bonusBallCount) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_BONUS_BALL_COUNT);
+            throw new LotteryBuildingException(LotteryBuildingException.INVALID_BONUS_BALL_COUNT);
         }
     }
 

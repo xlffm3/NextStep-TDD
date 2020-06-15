@@ -25,12 +25,12 @@ public class LotteryNumber {
 
     public static LotteryNumber from(int lotteryNumber) {
         return Optional.ofNullable(lotteryNumberCache.get(lotteryNumber))
-                .orElseThrow(() -> new IllegalArgumentException(ErrorMessages.OUT_OF_RANGE));
+                .orElseThrow(() -> new LotteryBuildingException(LotteryBuildingException.OUT_OF_RANGE));
     }
 
     private void validateLotteryNumber(int lotteryNumber) {
         if (lotteryNumber < MINIMUM_NUMBER || lotteryNumber > MAXIMUM_NUMBER)
-            throw new IllegalArgumentException(ErrorMessages.OUT_OF_RANGE);
+            throw new LotteryBuildingException(LotteryBuildingException.OUT_OF_RANGE);
     }
 
     public int getLotteryNumber() {

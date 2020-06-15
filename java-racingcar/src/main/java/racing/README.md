@@ -120,5 +120,8 @@ chore (maintain)
     * 게임 결과를 출력한다.
     * 우승자를 출력한다.
 
+* ViewMessages
+    * 뷰에 필요한 상수들을 정의해둔 클래스이다.
+
 ### Controller
 * Application

@@ -1,9 +1,6 @@
 package lottery;
 
-import lottery.domain.LotteryNumber;
-import lottery.domain.LotteryRank;
-import lottery.domain.LotteryTicket;
-import lottery.domain.WinningLottery;
+import lottery.domain.*;
 import lottery.view.ViewMessages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -59,7 +56,7 @@ public class LotteryTicketTest {
     public void throwExceptionOnMakingLotteryTicket() {
         lotteryNumberList.remove(0);
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(LotteryBuildingException.class)
                 .isThrownBy(() -> {
                     LotteryTicket.from(lotteryNumberList);
                 });
@@ -71,7 +68,7 @@ public class LotteryTicketTest {
         lotteryNumberList.remove(0);
         lotteryNumberList.add(LotteryNumber.from(2));
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(LotteryBuildingException.class)
                 .isThrownBy(() -> {
                     LotteryTicket.from(lotteryNumberList);
                 });

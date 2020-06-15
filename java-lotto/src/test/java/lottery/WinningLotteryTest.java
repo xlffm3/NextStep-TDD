@@ -1,5 +1,6 @@
 package lottery;
 
+import lottery.domain.LotteryBuildingException;
 import lottery.domain.WinningLottery;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,6 @@ public class WinningLotteryTest {
     public void throwExceptionOnMakingLastWinningLottery() {
         assertThatThrownBy(() -> {
             WinningLottery.of(new String[]{"1", "2", "3", "4", "5", "6"}, 6);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(LotteryBuildingException.class);
     }
 }

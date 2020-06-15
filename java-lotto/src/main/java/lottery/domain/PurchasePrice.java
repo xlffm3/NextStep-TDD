@@ -23,13 +23,13 @@ public class PurchasePrice {
 
     private void validatePurchasePrice(long purchasePrice, int manualTicketCounts) {
         if (manualTicketCounts < ZERO_TICKET_COUNTS) {
-            throw new IllegalArgumentException(ErrorMessages.TICKET_COUNTS_NEGATIVE);
+            throw new LotteryBuildingException(LotteryBuildingException.TICKET_COUNTS_NEGATIVE);
         }
         if (manualTicketCounts == ZERO_TICKET_COUNTS && purchasePrice < LOTTERY_TICKET_PRICE) {
-            throw new IllegalArgumentException(ErrorMessages.PURCHASE_PRICE_NOT_ENOUGH);
+            throw new LotteryBuildingException(LotteryBuildingException.PURCHASE_PRICE_NOT_ENOUGH);
         }
         if (purchasePrice < LOTTERY_TICKET_PRICE * manualTicketCounts) {
-            throw new IllegalArgumentException(ErrorMessages.PURCHASE_PRICE_NOT_ENOUGH);
+            throw new LotteryBuildingException(LotteryBuildingException.PURCHASE_PRICE_NOT_ENOUGH);
         }
     }
 

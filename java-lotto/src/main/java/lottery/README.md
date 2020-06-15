@@ -112,7 +112,10 @@
     * 로또의 각 등수별 상금 정보와 필요한 당첨 숫자 개수를 정의
     * 당첨 갯수를 받아 해당 등수의 상금 합계를 제공함
         * 보너스 볼 포함 여부도 매개변수로 받아 5개 일치할 때 2등 3등 구분
-        
+ 
+ * LotteryBuildingException
+    * 런타임 Exception을 상속받는 커스텀 예외
+
 ### View
 * InputView
     * 구매 금액 입력 기능
@@ -123,6 +126,9 @@
     
 * OutputView
     * 결과 출력
+    
+* ViewMessages
+    * 뷰에 필요한 상수를 정의해둔 클래스
 
 ### Controller
 * Application

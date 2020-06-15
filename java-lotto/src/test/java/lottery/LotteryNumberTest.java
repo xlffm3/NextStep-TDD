@@ -1,5 +1,6 @@
 package lottery;
 
+import lottery.domain.LotteryBuildingException;
 import lottery.domain.LotteryNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +25,7 @@ public class LotteryNumberTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 46})
     public void throwExceptionOnMakingLotteryNumberObject(int lotteryNumber) {
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(LotteryBuildingException.class)
                 .isThrownBy(() -> {
                     LotteryNumber.from(lotteryNumber);
                 });

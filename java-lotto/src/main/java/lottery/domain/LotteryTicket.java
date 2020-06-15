@@ -44,7 +44,7 @@ public class LotteryTicket {
 
     private void validateLotteryNumberCounts(List<LotteryNumber> lotteryNumbers) {
         if (lotteryNumbers.size() != LOTTERY_NUMBER_COUNTS) {
-            throw new IllegalArgumentException(ErrorMessages.INVALID_NUMBER_COUNTS);
+            throw new LotteryBuildingException(LotteryBuildingException.INVALID_NUMBER_COUNTS);
         }
     }
 
@@ -54,7 +54,7 @@ public class LotteryTicket {
                 .distinct()
                 .count();
         if (lotteryNumbers.size() != filteredLotteryNumberCounts) {
-            throw new IllegalArgumentException(ErrorMessages.DUPLICATED_NUMBER);
+            throw new LotteryBuildingException(LotteryBuildingException.DUPLICATED_NUMBER);
         }
     }
 
