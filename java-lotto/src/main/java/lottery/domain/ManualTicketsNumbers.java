@@ -1,7 +1,7 @@
 package lottery.domain;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ManualTicketsNumbers {
 
@@ -11,7 +11,8 @@ public class ManualTicketsNumbers {
         this.manualTicketsNumbers = manualTicketsNumbers;
     }
 
-    public List<String[]> getManualTicketsNumbers() {
-        return Collections.unmodifiableList(manualTicketsNumbers);
+    public Stream<LotteryTicket> getManualTicketsStream() {
+        return manualTicketsNumbers.stream()
+                .map(LotteryTicket::publishManualLotteryTicket);
     }
 }

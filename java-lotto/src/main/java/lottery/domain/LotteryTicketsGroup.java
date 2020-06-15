@@ -36,9 +36,7 @@ public class LotteryTicketsGroup {
 
     private static List<LotteryTicket> publishMixedLotteryTicketsGroup(PurchasePrice purchasePrice,
                                                                        ManualTicketsNumbers manualTicketsNumbers) {
-        Stream<LotteryTicket> manualTicketsStream = manualTicketsNumbers.getManualTicketsNumbers()
-                .stream()
-                .map(LotteryTicket::publishManualLotteryTicket);
+        Stream<LotteryTicket> manualTicketsStream = manualTicketsNumbers.getManualTicketsStream();
         Stream<LotteryTicket> autoTicketsStream = Stream.generate(LotteryTicket::publishAutomaticLotteryTicket)
                 .limit(purchasePrice.getAutomaticTicketCounts());
         return Stream.concat(manualTicketsStream, autoTicketsStream)
