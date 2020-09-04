@@ -48,7 +48,7 @@ public class LotteryTicketsGroup {
                 .map(LotteryTicket::getLotteryNumbers)
                 .collect(Collectors.toList());
     }
-    
+
     public Map<LotteryRank, Integer> findWinnerTicketCountsByRank(WinningLottery winningLottery) {
         Map<LotteryRank, Integer> gameResultBoard = new HashMap<>();
         lotteryTickets.stream()
