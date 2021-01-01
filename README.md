@@ -10,7 +10,7 @@
 ## 📑 분류
 
 
-| Level | Project Code | Pull Requests |
+| Level | Project Code | Pull Request |
 |:---:|:---|:---|
 | 1 | [자동차 경주](https://github.com/xlffm3/NEXTSTEP-TDD/tree/master/java-racingcar) | [PR](https://github.com/next-step/java-racingcar/pulls?q=is%3Apr+is%3Aclosed+author%3Axlffm3) |
 | 2 | [로또](https://github.com/xlffm3/NEXTSTEP-TDD/tree/master/java-lotto) | [PR](https://github.com/next-step/java-lotto/pulls?q=is%3Apr+is%3Aclosed+author%3Axlffm3) |
